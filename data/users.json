@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "email": "admin@mail.com",
+    "phoneNumber": "081234567890"
+  },
+  {
+    "id": 2,
+    "username": "user",
+    "email": "user@mail.com",
+    "phoneNumber": "081234567891"
+  }
+]
