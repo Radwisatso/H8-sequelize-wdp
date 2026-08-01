@@ -12,10 +12,17 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
+
+    static async findAllUsers() {
+      return await User.findAll({
+        attributes: ['id', ['name', 'namaUser'], 'email', 'createdAt']
+      })
+    }
   }
   User.init({
     name: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING
+    phoneNumber: DataTypes.STRING,
+    email: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',
