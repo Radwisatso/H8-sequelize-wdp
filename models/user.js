@@ -11,6 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasOne(models.Profile, { // null - jika tidak ada datanya
+        foreignKey: "UserId"
+      })
+
+      User.hasMany(models.Product, { // [] - jika tidak ada datanya
+        foreignKey: "UserId"
+      })
     }
 
     static async findAllUsers() {
@@ -22,7 +29,11 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     name: DataTypes.STRING,
     phoneNumber: DataTypes.STRING,
-    email: DataTypes.STRING
+    email: {
+      type: DataTypes.STRING,
+      unique: true
+    },
+    password: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',
